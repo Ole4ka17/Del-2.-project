@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OB.Bank – Prosjekt</title>
+    <link rel="stylesheet" href="Del 2.CSS">
+</head>
+<body>
+
+<header>
+    <h1>OB.Bank</h1>
+</header>
+
+<nav>
+    <a href="#loan">Lånekalkulator</a>
+    <a href="#game">Gjett PIN-spill</a>
+    <a href="#transactions">Transaksjonsgenerator</a>
+</nav>
+
+<main>
+
+    <section id="loan" class="card">
+        <h2>Lånekalkulator</h2>
+
+        <label>
+            Beløp (kr):
+            <input type="number" id="loanAmount">
+        </label>
+
+        <label>
+            Rente (%):
+            <input type="number" id="interest" step="0.1">
+        </label>
+
+        <label>
+            Antall år:
+            <input type="number" id="years">
+        </label>
+
+        <button onclick="laan()">Beregn</button>
+        <p id="loanResult"></p>
+    </section>
+
+<section id="game" class="card">
+    <h2>Gjett PIN-koden</h2>
+
+    <p class="hint">Skriv et tall fra <strong>1000</strong> til <strong>9999</strong></p>
+
+    <input type="number" id="pinGuess" placeholder="For eksempel: 4532">
+
+    <button class="small-btn" onclick="gjett()">Gjett</button>
+
+    <p id="pinResult"></p>
+</section>
+
+
+    <section id="transactions" class="card">
+        <h2>Transaksjonsliste</h2>
+
+        <input type="text" id="transText" placeholder="Beskrivelse">
+        <input type="number" id="transAmount" placeholder="Beløp">
+        <button onclick="leggTil()">Legg til</button>
+
+        <ul id="transList"></ul>
+    </section>
+
+    <a id="calcPageBtn" href="Del 2 kalkulator.html">Kalkulator systemet</a>
+
+</main>
+
+<footer>
+    <p>© 2026 OB.Bank</p>
+</footer>
+
+<script src="Del 2.js"></script>
+</body>
+</html>

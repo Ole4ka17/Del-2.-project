@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #e7e7e7;
+    background-image: url("bilder/premium_photo-1675479123905-92c438ce474b.avif");
+    background-repeat: repeat;
+    animation: moveBg 50s linear infinite;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes moveBg {
+    from { background-position: 0 0; }
+    to   { background-position: 1000px 0; }
+}
+
+header {
+    width: 100%;
+    padding: 30px;
+    background: #222222c1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #42f900;
+    font-size: 50px;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    background: #022007;
+}
+
+nav a {
+    color: #36bd0d;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 2px 25px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #0e3d12;
+    color: #68ff6a;
+    box-shadow: 0 0 10px #0f701d;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 15px 40px;
+}
+
+.card {
+    background: #2e2e2e;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000055;
+    margin-bottom: 40px;
+    transition: transform 0.2s ease, box-shadow 0.7s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 18px #00000088;
+}
+
+input,
+button {
+    padding: 10px;
+    margin: 5px 0;
+    background: #3a3a3a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* поля и кнопки внутри трёх блоков */
+#loan input,
+#loan button,
+#game input,
+#game button,
+#transactions input,
+#transactions button {
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Делаем кнопки уже и по центру */
+#loan button,
+#game button,
+#transactions button {
+    width: 200px;      /* можешь поставить 120–200 */
+    display: block;
+    margin: 10px auto;
+}
+
+#loan input,
+#game input,
+#transactions input {
+    margin-bottom: 18px;
+}
+
+.card button {
+    width: 220px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: #17ae0c;
+    color: black;
+    transition: 0.4s;
+}
+
+#calcPageBtn {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 25px;
+    width: 280px;
+    text-align: center;
+    background: #32c312;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#calcPageBtn:hover {
+    background: #45ff1c;
+    transform: scale(1.03);
+    box-shadow: 0 0 18px #00000088;
+}
+
+/* Калькулятор */
+.calc-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+.calculator {
+    background: #1f1f1f;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #00000088;
+    width: 320px;
+}
+
+.calc-top {
+    margin-bottom: 15px;
+}
+
+.calculator-screen {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.6rem;
+    text-align: right;
+    border-radius: 10px;
+    border: none;
+    background: #2c2c2c;
+    color: #ffffff;
+}
+
+/* --- Калькулятор --- */
+
+.calculator-buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* общие стили для всех кнопок калькулятора */
+.calculator button{
+    padding: 15px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    border: none;
+    background: #3a3a3a;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calculator button:hover{
+    background: #59cd2f;
+    color: black;
+}
+
+/* нижние две кнопки – одинаковые и занимают всю строку */
+.btn-equals,
+.btn-back{
+    height: 55px;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    grid-column: span 2;   /* КАЖДАЯ занимает по 2 колонки из 4 */
+}
+
+
+.btn-equals{
+    background: #17ae0c;
+}
+
+.btn-equals:hover{
+    background: #1fd012;
+}
+
+/* цвет для C */
+.btn-clear{
+    background: #b82727;
+}
+
+.btn-clear:hover{
+    background: #e23636;
+}
+
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin: 10px 0 20px;
+    color: #34d828;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+
+footer {
+    padding: 12px 0;
+    text-align: center;
+    background: #222;
+    color: white;
+    width: 100%;
+}
+

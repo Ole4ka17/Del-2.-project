@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OB.Bank – Kalkulator</title>
+    <link rel="stylesheet" href="Del 2.css">
+</head>
+<body>
+
+<header>
+    <h1>OB.Bank – Kalkulator</h1>
+</header>
+
+<main>
+    <div class="calc-wrapper">
+        <div class="calculator">
+
+            <input type="text"
+                   id="calcDisplay"
+                   class="calculator-screen"
+                   value="0"
+                   readonly>
+
+            <div class="calculator-buttons">
+                <button data-value="7">7</button>
+                <button data-value="8">8</button>
+                <button data-value="9">9</button>
+                <button data-value="/">÷</button>
+
+                <button data-value="4">4</button>
+                <button data-value="5">5</button>
+                <button data-value="6">6</button>
+                <button data-value="*">×</button>
+
+                <button data-value="1">1</button>
+                <button data-value="2">2</button>
+                <button data-value="3">3</button>
+                <button data-value="-">−</button>
+
+                <button data-value="0">0</button>
+                <button data-value=".">.</button>
+                <!-- добавлен класс btn-clear -->
+                <button class="btn-clear" data-action="clear">C</button>
+                <button data-value="+">+</button>
+
+                <!-- добавлены КЛАССЫ для нижних кнопок -->
+                <button class="btn-equals" data-action="equals">=</button>
+                <button class="btn-back" data-action="backspace">←</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="Del 2.html" class="back-link">← Tilbake til OB.Bank</a>
+</main>
+
+<footer>
+    <p>© 2026 OB.Bank</p>
+</footer>
+
+<script>
+    var display = document.getElementById("calcDisplay");
+    var buttons = document.querySelectorAll(".calculator button");
+
+    buttons.forEach(function(btn){
+        btn.onclick = function(){
+            var val = btn.dataset.value;
+            var act = btn.dataset.action;
+
+            if (act === "clear") {
+                display.value = "0";
+            } else if (act === "equals") {
+                try {
+                    display.value = eval(display.value);
+                } catch(e) {
+                    display.value = "Error";
+                }
+            } else if (act === "backspace") {
+                display.value = display.value.slice(0, -1) || "0";
+            } else if (val) {
+                if (display.value === "0" || display.value === "Error") {
+                    display.value = val;
+                } else {
+                    display.value += val;
+                }
+            }
+        };
+    });
+</script>
+
+</body>
+</html>
+
