@@ -39,24 +39,33 @@ h1 {
     margin: 0;
 }
 
-nav {
+nav{
     width: 100%;
-    padding: 15px 20px;
+    padding: 10px 20px;
     display: flex;
-    justify-content: center;
-    gap: 200px;
+    justify-content: space-between; /* равномерно по ширине */
+    align-items: center;
     background: #022007;
+
+
+    flex-wrap: nowrap;      /* НЕ переносить */
+    
 }
 
-nav a {
-    color: #36bd0d;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 2px 25px;
+nav a{
+    color:#36bd0d;
+    text-decoration:none;
+    font-size:1.1rem;
+    font-weight:500;
+
+    padding: 6px 14px;      /* кнопки уже */
     border-radius: 8px;
-    transition: 0.3s;
+    transition:0.3s;
+
+    white-space: nowrap;    /* текст в одну строку */
+    flex-shrink: 0;         /* чтобы ссылки не сжимались */
 }
+
 
 nav a:hover {
     background: #0e3d12;
@@ -126,7 +135,7 @@ button {
     width: 220px;
     margin: 15px auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 

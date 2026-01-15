@@ -1,0 +1,226 @@
+.quiz-card h2{
+  margin: 0 0 10px 0;
+}
+
+.quiz-top{
+  display:flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.scoreboard{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(20,20,20,0.35);
+  border: 1px solid #3b3b3b;
+}
+
+.quiz-info{
+  margin-top: 6px;
+  opacity: 0.95;
+}
+
+#quizArea{
+  margin-top: 18px;
+}
+
+.quiz-question{
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid #3b3b3b;
+  padding: 16px;
+  background: rgba(42, 42, 42, 0.70);
+}
+
+.quiz-question h3{
+  margin: 0 0 14px 0;
+  font-size: 1.2rem;
+}
+
+.quiz-options{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+  align-items: stretch;
+}
+
+@media (max-width: 600px){
+  .quiz-options{
+    grid-template-columns: 1fr; /* на телефоне снова в столбик */
+  }
+}
+
+
+.quiz-option{
+  width: 100%;
+  display:flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  background: #3a3a3a;
+  border: 1px solid #444;
+  color: #fff;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.quiz-option:hover{
+  background: #444;
+}
+
+.quiz-option:disabled{
+  cursor: not-allowed;
+  opacity: 0.92;
+}
+
+/* эффекты extra: green/red */
+.quiz-option.ok{
+  border-color: #17ae0c;
+  box-shadow: 0 0 10px #17ae0c44;
+}
+
+.quiz-option.bad{
+  border-color: #b82727;
+  box-shadow: 0 0 10px #b8272744;
+}
+
+.quiz-feedback{
+  margin-top: 14px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  min-height: 1.4em;
+}
+
+.quiz-feedback.ok{
+  color: #68ff6a;
+}
+
+.quiz-feedback.bad{
+  color: #ff6a6a;
+}
+
+.quiz-actions{
+  display:flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.quiz-actions button{
+  width: 220px;     /* поуже, как ты делал */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* финальный экран */
+.quiz-finish{
+  border-radius: 14px;
+  padding: 18px;
+  background: rgba(42, 42, 42, 0.70);
+  border: 1px solid #3b3b3b;
+  text-align: center;
+}
+/* 1) Сужаем сам блок вопроса и центрируем */
+.quiz-question{
+  max-width: 900px;          /* сделай 700/800/900 как нравится */
+  width: 100%;
+  margin: 0 auto 18px auto;  /* по центру */
+  padding: 16px;
+}
+
+/* 2) Варианты ответов — сетка внутри узкого блока */
+.quiz-options{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* 3) Каждая кнопка занимает всю ячейку и выглядит ровно */
+.quiz-option{
+  width: 100%;
+  justify-content: flex-start;
+  min-height: 60px;          /* одинаковая высота */
+  padding: 12px 14px;
+}
+
+/* 4) Текст внутри не ломает сетку */
+.quiz-option .opt-text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 5) Адаптив: на телефоне ответы в 1 колонку */
+@media (max-width: 700px){
+  .quiz-question{
+    max-width: 100%;
+  }
+
+  .quiz-options{
+    grid-template-columns: 1fr;
+  }
+}
+.quiz-question{
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 14px;
+  border: 1px solid #3b3b3b;
+  padding: 16px;
+
+  /* чтобы картинка была видна сквозь блок */
+  background: rgba(30, 30, 30, 0.55);
+}
+
+/* Размытый фон-картинка внутри блока */
+.quiz-question::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("bilder/premium_photo-1675479123905-92c438ce474b.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(10px);
+  transform: scale(1.15); /* чтобы blur не оставлял пустые края */
+  opacity: 0.70;
+
+  z-index: 0;
+}
+
+/* Весь текст и кнопки поверх размытого фона */
+.quiz-question *{
+  position: relative;
+  z-index: 1;
+}
+/* включаем счётчик для вариантов */
+.quiz-options{
+  counter-reset: opt;
+}
+
+/* каждый вариант получает номер */
+.quiz-option::before{
+  counter-increment: opt;
+  content:counter(opt) ")";
+  font-weight: 700;
+  color: #ffffff;
+  margin-right: 3px;
+}

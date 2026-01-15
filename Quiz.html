@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OB.Bank – Quiz</title>
+
+  <!-- твой общий стиль -->
+  <link rel="stylesheet" href="Del 2.CSS" />
+  <!-- стиль квиза -->
+  <link rel="stylesheet" href="Quiz.css" />
+</head>
+
+<body>
+<header>
+  <h1>OB.Bank – Quiz</h1>
+</header>
+
+<nav class="nav-home">
+  <a href="Del 2.html#loan">Lånekalkulator</a>
+  <a href="Del 2.html#game">Gjett PIN-spill</a>
+  <a href="Del 2.html#transactions">Transaksjonsgenerator</a>
+  <a href="Quiz.html">Quiz</a>
+</nav>
+
+<main>
+  <section class="card quiz-card">
+    <div class="quiz-top">
+      <h2>Bank-quiz</h2>
+
+      <div class="scoreboard" id="scoreboard">
+        <span>Forsøk: <strong id="attempts">0</strong></span>
+        <span>Riktig: <strong id="correct">0</strong></span>
+        <span>Spørsmål: <strong id="progress">0/0</strong></span>
+      </div>
+    </div>
+
+    <p class="quiz-info" id="quizInfo">
+      Velg ett svar per spørsmål.
+    </p>
+
+    <!-- сюда JS будет рендерить вопрос и варианты -->
+    <div id="quizArea"></div>
+
+    <div class="quiz-actions">
+      <button type="button" id="nextBtn" disabled>Neste</button>
+      <button type="button" id="resetBtn">Nullstill</button>
+    </div>
+
+    <div class="quiz-feedback" id="feedback"></div>
+  </section>
+
+  <a href="Del 2.html" class="back-link">← Tilbake til OB.Bank</a>
+</main>
+
+<footer>
+  <p>© 2026 OB.Bank</p>
+</footer>
+
+<script src="Quiz.js"></script>
+</body>
+</html>
+
